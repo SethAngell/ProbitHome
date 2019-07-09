@@ -1,4 +1,4 @@
-# Probit.technology
+# Probit Technologies Webpage
 
 Probit Technologies home on the web. Hosting a portfolio, as well as a blog for our members. Currently under active development
 
