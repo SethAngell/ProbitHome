@@ -1,0 +1,13 @@
+<!-- templates/profile_page.html -->
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<table style="width=75%">
+    <tr>
+        <td><img src="{{ user.avatar.url }}"></td>
+        <td><h1>{{ user.username }}</h1></td>
+    </tr>
+</table>
+{% endblock %}
