@@ -1,0 +1,20 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<table>
+  <tr>
+    <td><img src="{{ user.avatar.url }}" style="border-radius:50%;width:200px;height:200px;"></td>
+    <td><h2>Welcome back, {{ user.username }}!</h2></td>
+  </tr>
+</table>
+ <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a> |
+  <a href="{% url 'signup' %}">signup</a>
+{% endif %}
+{% endblock %}
