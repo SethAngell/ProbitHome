@@ -5,7 +5,7 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     pass
-    avatar = models.ImageField(upload_to='images/', default='default/DefaultProf.jpg')
+    avatar = models.ImageField(upload_to='images/', default='media/images/DefaultProf.jpg')
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):

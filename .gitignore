@@ -10,6 +10,8 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
+default/
+*/migrations
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
@@ -72,6 +74,7 @@ coverage.xml
 
 # Django stuff:
 db.sqlite3-journal
+
 
 # Flask stuff:
 instance/
@@ -240,7 +243,7 @@ fabric.properties
 *.iml
 modules.xml
  .idea/misc.xml
- *.ipr
+ .ipr
 .idea
 
 # Sonarlint plugin
