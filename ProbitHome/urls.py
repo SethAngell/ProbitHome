@@ -24,6 +24,7 @@ urlpatterns = [
     path('users/', include('users.urls')), # Django will route through custom authentication urls first
     path('users/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('blog/', include('blog.urls')),
 ]
 
 if settings.DEBUG: # new
