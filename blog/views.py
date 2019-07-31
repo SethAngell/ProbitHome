@@ -43,9 +43,7 @@ def blog_detail(request, pk):
     return render(request, "blog_detail.html", context)
 
 def blog_user(request, author):
-    print(author)
     desiredUser = CustomUser.objects.get(username=str(author))
-    print(desiredUser)
     posts = Post.objects.filter(author=desiredUser).order_by('-created_on')
     context = {
         "author": author,
