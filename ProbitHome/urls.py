@@ -15,8 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),  # don't forget the home page links
+    path('users/', include('users.urls')), # Django will route through custom authentication urls first
+    path('users/', include('django.contrib.auth.urls')),
+    path('blog/', include('blog.urls')),
 ]
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
