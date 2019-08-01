@@ -1,109 +1,159 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <title>Probit.Tech</title>
-  <link rel="stylesheet" href="../style/homestyle.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device.width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> !-- fix This --!
+    <link rel="stylesheet" href="{% static 'style/homePage.css' %}" />
+    <title>Probit.Technology</title>
 </head>
 
 <body>
-  <img src="" alt="P~Wave" width="100" height="100" />
-  <h3>Probit Technologies L.P</h3>
-  <!-- hot links to other sections here -->
-  <p>
-    <a href="#">About</a> |
-    <a href="#">Projects</a> |
-    <a href="#">Services</a> |
-    <a href="#">Contacts</a> |
-    <a href="#">Contributors</a>|
-    <a href="#">Disciplines</a>
-  </p>
-  <p>
-    <a href="#">Log In/Out</a> --
-    <a href="#">Sign Up</a>
-  </p>
-  <hr />
-<h2>Who We Are</h2>
-<p>
-  We are Probit Technologies yada yada we do bit and git with wit
-</p>
-<br>
-<h2>What We Are Working On</h2>
-<p>
-  some sort of project I'm sure
-  <ul>
-    <li>Novelty RfiD Media Player</li>
-    <li>Solcial Calendar</li>
-    <li>like some magic mirror or something</li>
-    <li>p.s. hey don;t steal these ideas, we'll be sad</li>
-  </ul>
-</p>
-<br>
-<h2>What We Offer</h2>
-<p>
-  we could, like, build you a website or something
-</p>
-<br>
-<table>
-  <tr>
-    <td style="padding-right: 100px;"><h3>Seth Card </h3></td>
-    <td><h3>Evan Card</h3></td>
-  </tr>
-</table>
-<br>
-<h2>Contributers/Team</h2>
-<table>
-  <tr>
-    <td style="padding-right: 50px;"><h5>Cole Card</h5></td>
-    <td style="padding-right: 50px;"><h5>Jordan Card</h5></td>
-    <td style="padding-right: 50px;"><h5>Kevin Card</h5></td>
-  </tr>
-</table>
-<h2>Probit.Others</h2>
-<p>
-  Probit:
-  <ul>
-    <li><a href="{% url 'home' %}">.Tech</a></li>
-    <li><a href="#">.Blog</a></li>
-    <li><a href="#">.Photography</a></li>
-    <li><a href="#">.Recruit</a></li>
-  </ul>
-</p>
-<br>
-<h2>Contact Us</h2>
-<table>
-  <tr>
-    <td><img src="#" alt="Seth Profile Pic"/></td>
-    <td><img src="#" alt="Evan Profile Pic"/></td>
-  </tr>
-  <tr>
-    <td>Seth Angell</td>
-    <td>Evan Patterson</td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>(704) 517-3957</li>
-        <li>SethAngell.PL@gmail.com</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>(704) 996-6854</li>
-        <li>empatte2@ncsu.edu</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><li><a href="{% url 'EvanPatterson' %}">Evan's Portfolio</a></li></td>
-    <td><li><a href="{% url 'SethAngell' %}">Seth's Portfolio</a></li></td>
-  </tr>
-</table>
-<br>
+    <nav id="navbar">
+        <div class="logo">
+            <h4>Probit Technologies</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Blog</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="banner" style="background-image: url(../homepage/static/images/banner.jpg)">
 
-<br>
+    </div>
+    <div class="page-content">
+        <h1 class="header">Our Story</h1>
+        <p class="paragraph">
+            We are Probit Technologies yada yada. We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.
+            We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.
+            We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.
+
+        </p>
+        <h1 class="header">Projects</h1>
+        <div class="project-list">
+            <div class="proj1 flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url(../homepage/static/images//blog.jpg)">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Project 1</h1>
+                        <p>This is a description</p>
+                        <p>want more info?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="proj3 flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url(../homepage/static/images/speaker.jpg)">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Project 2</h1>
+                        <p>This is a description</p>
+                        <p>want more info?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="proj3 flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url(../homepage/static/images/calendar.jpeg)">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Project 3</h1>
+                        <p>This is a description</p>
+                        <p>want more info?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="header">Services</h1>
+        <p>
+
+        </p>
+        <h1 class="header">Our Team</h1>
+        <h3 class="sub-header">Co-Founders</h3>
+        <div class="co-founders">
+            <div class="fan-cards seth-card">
+                <div class="fan-card card-bottom">
+                    Seth is not cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool.
+                </div>
+                <div class="fan-card card-middle">
+                    Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni.
+                </div>
+                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Seth_test.jpg)">
+                    <div class="card-title">
+                        <p>Seth Angell</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fan-cards evan-card">
+                <div class="fan-card card-bottom">
+
+                </div>
+                <div class="fan-card card-middle">
+
+                </div>
+                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Evan_test.jpg)">
+                    <div class="card-title">
+                        <p>Evan Patterson</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="sub-header">Members</h3>
+        <div class="members">
+            <div class="fan-cards">
+                <div class="fan-card card-bottom">
+
+                </div>
+                <div class="fan-card card-middle">
+
+                </div>
+                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Cole_test.jpg)">
+                    <div class="card-title">
+                        <p>Cole K&#252;hne</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="seth-contact">
+
+        </div>
+        <div class="evan-contact">
+
+        </div>
+    </div>
+    <script> // src="../script/homescript.js"
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+
+        // Get the navbar
+        var navbar = document.getElementById("navbar");
+
+        // Get the offset position of the navbar
+        var sticky = navbar.offsetTop;
+
+        // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        }
+    </script>
 
 
-
-<script src="../script/homescript.js"></script>
 </body>
 </html>

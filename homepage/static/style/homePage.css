@@ -1,0 +1,251 @@
+/*-----------------------------------------------------------------------------HOMEPAGE STYLESHEET--------------------------------------------------------------------------------------*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(226,226,226);
+}
+
+/*------------------------------The navbar------------------------------*/
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #49545D;
+    font-family: 'Poppins', sans-serif;
+    z-index: 10;
+}
+.logo{
+    color: rgb(226,226,226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    height: inherit;
+}
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+    height: 100%;
+    z-index: 10;
+}
+.nav-links li{
+    list-style: none;
+}
+.nav-links a {
+    color: rgb(226,226,226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .banner {
+    margin-top: 8vh;
+}
+
+
+/*------------------------------The Banner--------------------------------*/
+.banner {
+    width: 100%;
+    height: 300px;
+    box-shadow: inset 0px 0px 10px 10px rgba(0,0,0,0.5);
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+}
+
+/*------------------------------Page Content------------------------------*/
+/*----------Headers----------*/
+.header {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 5px;
+    font-weight: bolder;
+    font-size: 75px;
+    color: #49545D;
+    text-align: center;
+    padding: 10px;
+    text-decoration: underline;
+}
+.sub-header {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    font-weight: normal;
+    font-size: 30px;
+    color: #49545D;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+/*----------Paragraphs info----------*/
+.paragraph {
+    padding: 0px 10% 50px 10%;
+    line-height: 1.8;
+    word-spacing: 6px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*----------The Project Panels----------*/
+.project-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+.project-list *{
+    border-radius: 10px;
+}
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 250px;
+    height: 300px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+
+}
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
+}
+/* Do an horizontal flip  */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: #49545D;
+    background-size: cover;
+    background-position: center;
+    border: 2px medium;
+    border-color: #49545D;
+    border-style: solid;
+}
+/* Style the back side */
+.flip-card-back {
+    background-color: #1D9A8B;
+    color: rgb(226,226,226);
+    transform: rotateY(180deg);
+    border: 2px medium;
+    border-color: #49545D;
+    border-style: solid;
+}
+
+/*--------------The Team Section--------------*/
+.co-founders {
+    min-height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.members {
+    min-height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.co-founders .fan-cards {
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+}
+.members .fan-cards {
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    position: relative;
+}
+.fan-card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    background-color: oldlace;
+    border-radius: 10px;
+    transform-origin: bottom center;
+    border: 2px medium;
+    border-color: #49545D;
+    border-style: solid;
+}
+.card-top {
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+}
+.card-title {
+    height: 50px;
+    width: 100%;
+    background-color: #1D9A8B;
+    border-radius: 10px 10px 0 0;
+    color: rgb(226,226,226);
+    opacity: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+}
+.card-middle:hover{
+    z-index: 1;
+}
+.card-bottom:hover {
+    z-index: 1;
+}
+.card-top:hover {
+    z-index: 1;
+}
+.fan-cards:hover .fan-card:first-child {
+    transform: rotate(25deg);
+    /*transform: translateX(35px);*/
+}
+
+.fan-cards:hover .fan-card:last-child {
+    transform: rotate(-25deg);
+    /*transform: translateX(-35px);*/
+}
+/*------------------------------The Footer------------------------------*/
+.footer {
+    width: 100%;
+    min-height: 200px;
+    background-color: #49545D;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 35px 0 35px 0;
+}
+.seth-contact {
+    background-color: #1D9A8B;
+    min-height: 300px;
+    width: 40%;
+}
+.evan-contact {
+    background-color: #2597A1;
+    min-height: 300px;
+    width: 40%;
+}
