@@ -14,3 +14,6 @@ class CommentForm(forms.Form):
             "placeholder": "Leave a comment!"
         })
     )
+
+# class PostForm(forms.Form):
+#     Author =
