@@ -1,4 +1,163 @@
-<!-- templates/home.html -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device.width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> !-- fix This --!
+    <link rel="stylesheet" href="{% static 'style/homePage.css' %}" />
+    <title>Probit.Technology</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <h4>Probit Technologies</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Blog</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="banner" style="background-image: url(../homepage/static/images/banner.jpg)">
+
+    </div>
+    <div class="page-content">
+        <h1 class="header">Our Story</h1>
+        <p class="paragraph">
+            We are Probit Technologies yada yada. We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.
+            We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.
+            We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.We are Probit Technologies yada yada.
+
+        </p>
+        <h1 class="header">Projects</h1>
+        <div class="project-list">
+            <div class="proj1 flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url(../homepage/static/images//blog.jpg)">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Project 1</h1>
+                        <p>This is a description</p>
+                        <p>want more info?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="proj3 flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url(../homepage/static/images/speaker.jpg)">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Project 2</h1>
+                        <p>This is a description</p>
+                        <p>want more info?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="proj3 flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url(../homepage/static/images/calendar.jpeg)">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Project 3</h1>
+                        <p>This is a description</p>
+                        <p>want more info?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="header">Services</h1>
+        <p>
+
+        </p>
+        <h1 class="header">Our Team</h1>
+        <h3 class="sub-header">Co-Founders</h3>
+        <div class="co-founders">
+            <div class="fan-cards seth-card">
+                <div class="fan-card card-bottom">
+                    Seth is not cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool. Seth is cool.
+                </div>
+                <div class="fan-card card-middle">
+                    Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni.
+                </div>
+                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Seth_test.jpg)">
+                    <div class="card-title">
+                        <p>Seth Angell</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fan-cards evan-card">
+                <div class="fan-card card-bottom">
+
+                </div>
+                <div class="fan-card card-middle">
+
+                </div>
+                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Evan_test.jpg)">
+                    <div class="card-title">
+                        <p>Evan Patterson</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="sub-header">Members</h3>
+        <div class="members">
+            <div class="fan-cards">
+                <div class="fan-card card-bottom">
+
+                </div>
+                <div class="fan-card card-middle">
+
+                </div>
+                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Cole_test.jpg)">
+                    <div class="card-title">
+                        <p>Cole K&#252;hne</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="seth-contact">
+
+        </div>
+        <div class="evan-contact">
+
+        </div>
+    </div>
+    <script> // src="../script/homescript.js"
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+
+        // Get the navbar
+        var navbar = document.getElementById("navbar");
+
+        // Get the offset position of the navbar
+        var sticky = navbar.offsetTop;
+
+        // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        }
+    </script>
+
+
+</body>
+</html>
+<!-- templates/home.html 
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
@@ -18,3 +177,4 @@
   <a href="{% url 'signup' %}">signup</a>
 {% endif %}
 {% endblock %}
+-->
