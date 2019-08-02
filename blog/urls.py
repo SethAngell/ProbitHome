@@ -7,6 +7,6 @@ urlpatterns = [
     path("<int:pk>/", views.blog_detail, name="blog_detail"),
     path("<category>/", views.blog_category, name="blog_category"),
     path("user/<author>/", views.blog_user, name="blog_user"),
-    # path("<int:pk>/edit", blog_edit.as_view(), name="blog_edit"),
-    # path("new/", blog_create.as_view(), name="blog_new")
+    path("post/new/", views.blog_new, name="blog_new"),
+    path('<int:pk>/edit/', views.blog_edit, name='blog_edit'),
 ]

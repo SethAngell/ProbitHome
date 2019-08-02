@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from blog.models import Post, Comment
-from blog.forms import CommentForm
+from blog.forms import CommentForm, PostForm
 from users.models import CustomUser
+from datetime import datetime
+from django.shortcuts import redirect
 from django.views.generic import CreateView, UpdateView
 
 def blog_index(request):
@@ -60,15 +62,31 @@ def blog_user(request, author):
     }
     return render(request, "blog_user.html", context)
 
+def blog_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = datetime.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, "blog_edit.html", {"form": form})
 
-# Will update with next push
-# class blog_create(CreateView):
-#     model = Post
-#     template = 'blog_create.html'
-#     fields = ['title, body, categories, Header']
-#
-# class blog_edit(UpdateView):
-#     model = Post
-#     template = 'blog_edit.html'
-#     fields = ['title, body, categories, Header']
+def blog_edit(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = datetime.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'blog_edit.html', {'form': form})
+
 
