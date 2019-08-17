@@ -7,6 +7,7 @@ class CustomUser(AbstractUser):
     pass
     avatar = models.ImageField(upload_to='media/images/', default='media/images/DefaultProf.jpg')
     slug = models.SlugField(unique=True)
+    is_community_member = models.BooleanField("community status", default=False)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)

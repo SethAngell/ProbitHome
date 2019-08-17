@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device.width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> !-- fix This --!
@@ -15,10 +16,10 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#">Home</a>
+                <a href=''>Home</a>
             </li>
             <li>
-                <a href="#">Blog</a>
+                <a href="/blog">Blog</a>
             </li>
             <li>
                 <a href="#">About</a>
@@ -28,7 +29,7 @@
             </li>
         </ul>
     </nav>
-    <div class="banner" style="background-image: url(../homepage/static/images/banner.jpg)">
+    <div class="banner" style="background-image: url({% static 'images/banner.jpg' %})">
 
     </div>
     <div class="page-content">
@@ -43,7 +44,7 @@
         <div class="project-list">
             <div class="proj1 flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front" style="background-image: url(../homepage/static/images//blog.jpg)">
+                    <div class="flip-card-front" style="background-image: url({% static 'images/blog.jpg' %})">
                     </div>
                     <div class="flip-card-back">
                         <h1>Project 1</h1>
@@ -54,7 +55,7 @@
             </div>
             <div class="proj3 flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front" style="background-image: url(../homepage/static/images/speaker.jpg)">
+                    <div class="flip-card-front" style="background-image: url({%  static 'images/speaker.jpg' %})">
                     </div>
                     <div class="flip-card-back">
                         <h1>Project 2</h1>
@@ -65,7 +66,7 @@
             </div>
             <div class="proj3 flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front" style="background-image: url(../homepage/static/images/calendar.jpeg)">
+                    <div class="flip-card-front" style="background-image: url( {% static 'images/calendar.jpeg' %})">
                     </div>
                     <div class="flip-card-back">
                         <h1>Project 3</h1>
@@ -89,7 +90,7 @@
                 <div class="fan-card card-middle">
                     Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni. Seth goes to Wilmington Uni.
                 </div>
-                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Seth_test.jpg)">
+                <div class="fan-card card-top" style="background-image: url({% static 'images/Seth_test.jpg' %})">
                     <div class="card-title">
                         <p>Seth Angell</p>
                     </div>
@@ -102,7 +103,7 @@
                 <div class="fan-card card-middle">
 
                 </div>
-                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Evan_test.jpg)">
+                <div class="fan-card card-top" style="background-image: url({%  static 'images/Evan_test.jpg' %})">
                     <div class="card-title">
                         <p>Evan Patterson</p>
                     </div>
@@ -118,7 +119,7 @@
                 <div class="fan-card card-middle">
 
                 </div>
-                <div class="fan-card card-top" style="background-image: url(../homepage/static/images/Cole_test.jpg)">
+                <div class="fan-card card-top" style="background-image: url({%  static 'images/Cole_test.jpg' %})">
                     <div class="card-title">
                         <p>Cole K&#252;hne</p>
                     </div>
@@ -157,24 +158,3 @@
 
 </body>
 </html>
-<!-- templates/home.html 
-{% extends 'base.html' %}
-
-{% block title %}Home{% endblock %}
-
-{% block content %}
-{% if user.is_authenticated %}
-<table>
-  <tr>
-    <td><img src="{{ user.avatar.url }}" style="border-radius:50%;width:200px;height:200px;"></td>
-    <td><h2>Welcome back, {{ user.username }}!</h2></td>
-  </tr>
-</table>
- <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a> |
-  <a href="{% url 'signup' %}">signup</a>
-{% endif %}
-{% endblock %}
--->
