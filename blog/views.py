@@ -1,11 +1,13 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from blog.models import Post, Comment
 from blog.forms import CommentForm, PostForm
 from users.models import CustomUser
 from datetime import datetime
-from django.shortcuts import redirect
+from django.shortcuts import redirect, reverse
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class blog_index(generic.ListView):
     # Index the Post (blog) table and pulls all posts, sorted by newest to oldest
@@ -59,26 +61,30 @@ class blog_user(generic.ListView):
         return Post.objects.filter(author=user_object).order_by('-created_on')
 
 # REturn to this tomorrow https://stackoverflow.com/questions/42481287/automatically-set-logged-in-user-as-the-author-in-django-using-createview-and-mo
-class blog_new(generic.CreateView):
+class blog_new(generic.CreateView, LoginRequiredMixin):
     model = Post
     fields = ['title', 'body', 'categories', 'Header']
     template_name = 'blog/blog_edit.html'
 
-class blog_edit(generic.UpdateView):
-    model = Post
+    def get_success_url(self):
+        return reverse('blog_detail', kwargs={'pk': self.object.pk})
 
-def blog_edit(request, pk):
-    post = Post.objects.get(pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = datetime.now()
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'static/blog/html/blog_edit.html', {'form': form})
+    def form_valid(self, form):
+        form.instance.author_id = self.request.user.id
+        return super().form_valid(form)
+
+class blog_edit(generic.UpdateView, LoginRequiredMixin):
+    model = Post
+    fields = ['title', 'body', 'categories', 'Header']
+    template_name = 'blog/blog_edit.html'
+
+    def get_success_url(self):
+        return reverse('blog_detail', kwargs={'pk': self.object.pk})
+
+    def form_valid(self, form):
+        form.instance.author_id = self.request.user.id
+        return super().form_valid(form)
+
+
 
 

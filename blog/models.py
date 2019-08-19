@@ -3,6 +3,7 @@ from ProbitHome import settings
 import os
 from uuid import uuid4
 from django.utils.deconstruct import deconstructible
+from markdownx.models import MarkdownxField
 
 # https://stackoverflow.com/questions/15140942/django-imagefield-change-file-name-on-upload
 # https://stackoverflow.com/questions/25767787/django-cannot-create-migrations-for-imagefield-with-dynamic-upload-to-value/25768034
@@ -33,7 +34,7 @@ class Category(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    body = MarkdownxField()
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField('Category', related_name='posts')

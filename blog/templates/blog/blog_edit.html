@@ -5,9 +5,12 @@
 {% block content %}
     <div style="padding-left:2.5%; padding-right:2.5%">
         <h2>New post</h2>
-            <form method="POST" class="post-form">{% csrf_token %}
+            <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
             {{ form|crispy }}
+
             <button type="submit" class="save btn btn-default">Save</button>
+
+                {{  form.media }}
      </div>
 {% endblock %}
 

@@ -11,7 +11,9 @@
         <a href="{% url 'blog_category' category.name %}">
             {{ category.name }}
         </a>&nbsp;
-        {% endfor %} | <a href="{% url 'blog_edit' pk=post.pk %}">Edit Post</a>
+        {% endfor %}
+        {% if user.is_authenticated and user == post.author %}| <a href="{% url 'blog_edit' pk=post.pk %}">Edit Post</a> {% endif %}
+
             <p>{{ post.body | linebreaks }}</p>
     
 
@@ -36,5 +38,9 @@
     <hr>
     {% endfor %}
     </div>
-</div>
+    {% if user.is_authenticated and user != post.author %}
+    <button class="floating-action-button" onclick="window.location.href='post/new/'"><img src="https://img.icons8.com/material-sharp/24/000000/plus-math.png"></button>
+    {% elif user.is_authenticated and user == post.author %}
+    <button class="floating-action-button" onclick="window.location.href='{% url 'blog_edit' pk=post.pk %}'"><img src="https://img.icons8.com/material/24/000000/edit--v3.png"></button>
+    {% endif %}
 {% endblock content %}

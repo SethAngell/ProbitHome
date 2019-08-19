@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
+
+# fix moduleNotFoundError
+sys.path.append("\ProbitHome\WebEnv\Lib\site-packages")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage',  # Evan's app, the homepage, it's here
     'users.apps.UsersConfig',
+    'blog',
     'crispy_forms',
-    'blog'
+    'markdownx'
 ]
 
 MIDDLEWARE = [
@@ -127,8 +132,8 @@ STATICFILES_DIRS = [
     '/homepage/static/',
     '/blog/static/'
 ]
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'users.CustomUser' # new
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
