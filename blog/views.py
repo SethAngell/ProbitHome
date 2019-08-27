@@ -3,9 +3,11 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from blog.models import Post, Comment
 from blog.forms import CommentForm, PostForm
+from django import forms
 from users.models import CustomUser
 from datetime import datetime
-from django.shortcuts import redirect, reverse
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -61,13 +63,12 @@ class blog_user(generic.ListView):
         return Post.objects.filter(author=user_object).order_by('-created_on')
 
 # REturn to this tomorrow https://stackoverflow.com/questions/42481287/automatically-set-logged-in-user-as-the-author-in-django-using-createview-and-mo
-class blog_new(generic.CreateView, LoginRequiredMixin):
-    model = Post
-    fields = ['title', 'body', 'categories', 'Header']
-    template_name = 'blog/blog_edit.html'
-
+class blog_new(generic.FormView, LoginRequiredMixin):
     def get_success_url(self):
-        return reverse('blog_detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('blog_detail', kwargs={'pk': self.object.pk})
+
+    form_class = PostForm
+    template_name = 'blog/blog_edit.html'
 
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id
@@ -79,7 +80,7 @@ class blog_edit(generic.UpdateView, LoginRequiredMixin):
     template_name = 'blog/blog_edit.html'
 
     def get_success_url(self):
-        return reverse('blog_detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('blog_detail', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id

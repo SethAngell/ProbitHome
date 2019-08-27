@@ -29,7 +29,7 @@ SECRET_KEY = '^ien6jro3*#=gz$(np^q^%cw-h72yt1!2z#=+*-)jk4ara^eg4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.3']
 
 
 # Application definition
@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'blog',
     'crispy_forms',
-    'markdownx'
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -128,10 +129,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/homepage/static/',
-    '/blog/static/'
+    os.path.join(BASE_DIR, 'homepage/static'),
+    os.path.join(BASE_DIR, 'blog/static')
 ]
+STATIC_ROOT=os.path.join('static')
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'users.CustomUser' # new

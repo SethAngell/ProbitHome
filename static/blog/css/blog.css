@@ -1,0 +1,30 @@
+/******* Color Reference ********/
+/* Mint             #4cb69f     */
+/* Touch Of Grey    #f5f5f5     */
+/* Deep Purple      #201d3a     */
+/* src=https://hookagency.com/website-color-schemes/ */
+
+.floating-action-button {
+    padding: 10px;
+    background-color: #4cb69f; /* Mint */
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: 0.3s;
+    outline: none;
+    border-style: outset;
+    box-shadow: none;
+}
+
+.floating-action-button:hover {
+   /* background-color: #317768 */
+    opacity: 1;
+}
+
+.floating-action-button:active {
+    border-style: outset;
+    box-shadow: none;
+}

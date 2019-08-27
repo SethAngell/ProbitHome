@@ -24,9 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),  # don't forget the home page links
     path('users/', include('users.urls')), # Django will route through custom authentication urls first
+    path('ckeditor', include('ckeditor_uploader.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('blog/', include('blog.urls')),
-    url(r'^markdownx/', include('markdownx.urls')),
 ]
 
 if settings.DEBUG: # new
