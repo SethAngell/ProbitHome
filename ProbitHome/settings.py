@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
+
+# fix moduleNotFoundError
+sys.path.append("\ProbitHome\WebEnv\Lib\site-packages")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +29,7 @@ SECRET_KEY = '^ien6jro3*#=gz$(np^q^%cw-h72yt1!2z#=+*-)jk4ara^eg4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.3']
 
 
 # Application definition
@@ -39,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage',  # Evan's app, the homepage, it's here
     'users.apps.UsersConfig',
+    'blog',
     'crispy_forms',
-    'blog'
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -123,11 +129,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/homepage/static/',
+    os.path.join(BASE_DIR, 'homepage/static'),
+    os.path.join(BASE_DIR, 'blog/static')
 ]
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+STATIC_ROOT=os.path.join('static')
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'users.CustomUser' # new
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
