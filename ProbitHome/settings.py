@@ -29,7 +29,7 @@ SECRET_KEY = '^ien6jro3*#=gz$(np^q^%cw-h72yt1!2z#=+*-)jk4ara^eg4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.3']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'homepage/static'),
     os.path.join(BASE_DIR, 'blog/static')
 ]
-STATIC_ROOT=os.path.join('static')
+STATIC_ROOT = os.path.join('static')
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 LOGIN_REDIRECT_URL = '/'
@@ -142,4 +142,4 @@ EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-CRISPY_TEMPLATE_PACK='bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
