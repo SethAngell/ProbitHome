@@ -17,7 +17,7 @@
         <p>{{ post.body | slice:":400" }}...</p>
     {% endfor %}
     {% if user.is_authenticated %}
-    <button class="floating-action-button" onclick="window.location.href='post/new/'"><img src="https://img.icons8.com/material-sharp/24/000000/plus-math.png"></button>
+    <button class="floating-action-button" onclick="window.location.href='post/new/'"><img src="https://img.icons8.com/material/48/000000/edit--v3.png"></button>
     {% endif %}
 </div>
 {% endblock content %}

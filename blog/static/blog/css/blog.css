@@ -12,16 +12,14 @@
     right: 1%;
     cursor: pointer;
     border-radius: 50%;
-    opacity: 0.8;
     transition: 0.3s;
     outline: none;
-    border-style: outset;
+    border-style: none;
     box-shadow: none;
 }
 
 .floating-action-button:hover {
-   /* background-color: #317768 */
-    opacity: 1;
+   background-color: #44a792
 }
 
 .floating-action-button:active {

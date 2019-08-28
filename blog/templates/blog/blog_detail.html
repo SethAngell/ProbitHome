@@ -14,7 +14,7 @@
         {% endfor %}
         {% if user.is_authenticated and user == post.author %}| <a href="{% url 'blog_edit' pk=post.pk %}">Edit Post</a> {% endif %}
 
-            <p>{{ post.body | linebreaks }}</p>
+            {{ post.body | safe }}
     
 
     <h3>Leave a comment:</h3>
@@ -39,8 +39,8 @@
     {% endfor %}
     </div>
     {% if user.is_authenticated and user != post.author %}
-    <button class="floating-action-button" onclick="window.location.href='post/new/'"><img src="https://img.icons8.com/material-sharp/24/000000/plus-math.png"></button>
+    <button class="floating-action-button" onclick="window.location.href='post/new/'"><img src="https://img.icons8.com/material/48/000000/edit--v3.png"></button>
     {% elif user.is_authenticated and user == post.author %}
-    <button class="floating-action-button" onclick="window.location.href='{% url 'blog_edit' pk=post.pk %}'"><img src="https://img.icons8.com/material/24/000000/edit--v3.png"></button>
+    <button class="floating-action-button" onclick="window.location.href='{% url 'blog_edit' pk=post.pk %}'"><img src="https://img.icons8.com/material/48/000000/edit--v3.png"></button>
     {% endif %}
 {% endblock content %}
