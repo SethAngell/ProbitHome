@@ -318,6 +318,8 @@ pip-selfcheck.json
 webenv/*
 
 # Atom Specific
+/.vs
 .vs
+.vs/
 
 # End of https://www.gitignore.io/api/osx,venv,python,django,pycharm
