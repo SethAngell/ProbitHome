@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <form method="post" novalidate enctype='multipart/form-data'>
+        {% csrf_token %}
+
+        <div class="header-container" style="position:relative; border: none;">
+            <img src="{% static 'blog/defaults/DefaultHeader.jpeg' %}" alt="" class="hero-image" id="hero-upload"/>
+            <div class="file-upload">
+                <input name ="header" id="header" type="file" accept="image/*">
+                <i class="fas fa-camera" id="header-icon"></i>
+            </div>
+            <script>
+                document.getElementById('header').onchange = function (evt) {
+                    var tgt = evt.target || window.event.srcElement,
+                        files = tgt.files;
+
+                    // FileReader support
+                    if (FileReader && files && files.length) {
+                        var fr = new FileReader();
+                        fr.onload = function () {
+                            document.getElementById("hero-upload").src = fr.result;
+                            document.getElementById("hero-upload").hidden = false;
+                            document.getElementById("header").hidden = true;
+                            document.getElementById('header-icon').hidden = true;
+                        }
+                        fr.readAsDataURL(files[0]);
+                    }
+
+                    // Not supported
+                    else {
+                        // fallback -- perhaps submit the input to an iframe and temporarily store
+                        // them on the server until the user's session ends.
+                    }
+                }
+            </script>
+        </div>
+
+        <div class="blog-container">
+            <div>
+                <label>
+                    <input id="title" class="title-input" type="text" placeholder="Title" name="title">
+                </label>
+
+            </div>
+            <div>
+                <label>
+                    <textarea id="body" placeholder="Tell me something..." name="body" onKeyUp="SetNewSize(this);" ></textarea>
+                </label>
+                <script>
+                    function SetNewSize(textarea){
+                    if (textarea.value.length > 5){
+                    textarea.cols = 50;
+                    textarea.rows = 50;
+                    }  else{
+                         textarea.cols = 10;
+                         textarea.rows = 15;
+                      }
+                    }
+                  </script>
+            </div>
+        </div>
+        <button class="floating-action-button" type="submit"><i class="fas fa-arrow-up"></i></button>
+    </form>
+
+
+{% endblock content %}

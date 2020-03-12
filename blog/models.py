@@ -35,10 +35,9 @@ class Category(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    body = fields.RichTextUploadingField()
+    body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
-    categories = models.ManyToManyField('Category', related_name='posts')
     Header = models.ImageField(upload_to=path_and_rename, default='https://source.unsplash.com/random/1920x1080')  # HERE
 
     def __str__(self):

@@ -85,8 +85,13 @@ WSGI_APPLICATION = 'ProbitHome.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'probit_home',
+        'USER': 'data_goblin',
+        'PASSWORD': '4apQiS5xpSALj2po^8rHPHiO?vIS1wB5V#nVetSOJE7es',
+        'HOST': '45.79.209.33',
+        'PORT': '5432'
+
     }
 }
 

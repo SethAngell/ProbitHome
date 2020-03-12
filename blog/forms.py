@@ -1,23 +1,20 @@
 from django import forms
-from .models import Post
+from .models import Post, Comment
+
 
 class CommentForm(forms.Form):
-    author = forms.CharField(
-        max_length=60,
-        widget=forms.TextInput(attrs={
-            "class": "form-control",
-            "placeholder": "Your Name"
-        })
-    )
-    body = forms.CharField(widget=forms.Textarea(
-        attrs={
-            "class": "form-control",
-            "placeholder": "Leave a comment!"
-        })
-    )
 
-class PostForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        author = forms.CharField(max_length=200)
+        body = forms.Textarea()
+
+
+class PostForm(forms.Form):
 
     class Meta:
         model = Post
-        fields = ['title', 'body', 'categories', 'Header']
+        title = forms.CharField(max_length=250)
+        body = forms.Textarea()
+        header = forms.ImageField()
+

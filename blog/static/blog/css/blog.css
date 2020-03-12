@@ -4,25 +4,331 @@
 /* Deep Purple      #201d3a     */
 /* src=https://hookagency.com/website-color-schemes/ */
 
+/* https://feathericons.com/?query=camera */
+
+/* Positioning Elements */
+#parent {}
+#child {}
+
+
+
+/* General Text Styling */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
+p {
+    font-family: 'Merriweather', serif;
+    font-size: 21px;
+    white-space: pre-wrap;
+}
+
+.preview {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    white-space: pre-wrap;
+}
+
+/* Buttons and Button Text*/
 .floating-action-button {
-    padding: 10px;
+
+    /* button characteristics */
+    width: 75px;
+    height: 75px;
+    border-style: none;
+    box-shadow: none;
+    border-radius: 50%;
+
+    /* icon alignment */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+    /* theme matching */
     background-color: #4cb69f; /* Mint */
+    font-size: 40px;
+    color: #f5f5f5;
+
+    /* animation styling */
+    transition: 0.3s;
+
+    /* button positioning */
     position: fixed;
     bottom: 1%;
     right: 1%;
     cursor: pointer;
-    border-radius: 50%;
-    transition: 0.3s;
+
+    /* removing old button styling */
     outline: none;
-    border-style: none;
-    box-shadow: none;
+
 }
 
 .floating-action-button:hover {
-   background-color: #44a792
+    background-color: #f5f5f5;
+    color: #4cb69f
 }
 
 .floating-action-button:active {
     border-style: outset;
     box-shadow: none;
+}
+
+.post-submission-button {
+    display: flex;
+    border-color: #4cb69f;
+    border-radius: 4px;
+    background-color: rgba(245, 245, 245, 1);
+    color: #4cb69f;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 20px;
+    height: 28px;
+    padding-right: 6px;
+    padding-left: 6px;
+
+}
+
+.post-submission-text {
+    color: #4cb69f;
+}
+
+.post-submission-container {
+    text-align: center;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.header-submission-button {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    border-radius: 50%;
+    border-color: black;
+    border: 2px;
+    transition: 0.3s;
+    box-shadow: none;
+}
+
+.header-icon {
+    z-index: 1;
+}
+
+.custom-header-input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+/* https://speckyboy.com/custom-file-upload-fields/ */
+.file-upload {
+
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+    position: absolute;
+    z-index: 1;
+    margin-top: -175px;
+    /*margin-right: -50%;*/
+    /*transform: translate(-50%, -50%);*/
+    object-position: 50% 50%;
+
+    display:flex;
+    justify-content:center;
+    align-items: center;
+
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #201d3a 50%, #f5f5f5 50%);
+    background-size: 100% 200%;
+    transition: all 0.3s;
+    color: #FFFFFF;
+    font-size: 50px;
+}
+
+.hero-image {
+    height: 200px;
+    width: 100vw;
+    position: relative;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.header-container {
+    text-align: center;
+}
+
+
+
+input[type='file'] {
+
+    height: 200px;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+
+.file-upload:hover{
+
+      background-position: 0 -100%;
+
+      color:#201d3a;
+
+    }
+
+
+
+Input {
+    width: 100%;
+    background-color: #f5f5f5;
+    align-items: center;
+
+}
+
+input.text:focus {
+    border-left: 1px;
+    border-left-color: #4cb69f;
+}
+
+textarea {
+    padding-top: 1%;
+    width: 100%;
+    background-color: #f5f5f5;
+    align-items: center;
+    border: none;
+    resize: none;
+    font-size: 21px;
+}
+
+
+.header-image {
+    height: 200px;
+    width: 100vw;
+    background-size: cover;
+    position: relative;
+}
+
+
+.title-input {
+    padding-top: 1%;
+    border: none;
+    font-size: 42px;
+}
+
+.title-input:focus {
+
+}
+
+.body-input {
+    border: none;
+    font-size: 21px;
+}
+
+.blog-container {
+    padding-left: 20%;
+    padding-right: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-content: flex-end;
+
+}
+
+.card-header {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+}
+
+.card-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+
+.card-content {
+    padding: 2px;
+    overflow: hidden;
+
+}
+
+.blog-card {
+    width: 400px;
+    height: 600px;
+    border-radius: 5%;
+    border-style: solid;
+    border: 2px;
+    border-color: #201d3a;
+    padding: 5px;
+}
+
+
+
+
+@media only screen and (max-width: 479px){
+
+    /* start of phone styling */
+
+    .blog-container {
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .floating-action-button {
+
+    /* button characteristics */
+    width: 60px;
+    height: 60px;
+    border-style: none;
+    box-shadow: none;
+    border-radius: 50%;
+
+    /* icon alignment */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+    /* theme matching */
+    background-color: #4cb69f; /* Mint */
+    font-size: 40px;
+    color: #f5f5f5;
+
+    /* animation styling */
+    transition: 0.3s;
+
+    /* button positioning */
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    cursor: pointer;
+
+    /* removing old button styling */
+    outline: none;
+
+}
+
 }

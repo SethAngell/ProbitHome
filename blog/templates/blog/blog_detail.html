@@ -1,46 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="col-md-8 offset-md-2">
-    <img style="width: 100%; display: block; margin-left: auto; margin-right:auto; height: 100px; object-fit: cover" src="{{  post.Header.url }}" alt="{{ post.Header.url }}"></div>
-    <h1 style="text-align: center">{{ post.title }}</h1>
-    <div style="padding-left: 5%; padding-right: 5%">
+    <div style="height: 200px; width: 100vw; background-size: cover; position: relative; background-image: url({{ post.Header.url }}); background-position: 50% 50%"></div>
+
+    <div class="blog-container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.created_on.date }}</p>
+        <p>{{ post.body }}</p>
     </div>
-    <div style="padding-left: 2.5%; padding-right: 2.5%; ">
-            {{ post.created_on.date }} |  Categories:&nbsp;
-        {% for category in post.categories.all %}
-        <a href="{% url 'blog_category' category.name %}">
-            {{ category.name }}
-        </a>&nbsp;
+
+    {% if user.is_authenticated %}
+        <h3>Leave a comment:</h3>
+        <form action="/blog/{{ post.pk }}/" method="post">
+            {% csrf_token %}
+            <div>
+                <label>
+                    <textarea id="body" placeholder="Tell me something..." name="body" onKeyUp="SetNewSize(this);" ></textarea>
+                </label>
+                <script>
+                    function SetNewSize(textarea){
+                    if (textarea.value.length > 5){
+                    textarea.cols = 50;
+                    textarea.rows = 50;
+                    }  else{
+                         textarea.cols = 10;
+                         textarea.rows = 15;
+                      }
+                    }
+                  </script>
+            </div>
+            <div class="form-group">
+                {{ form.body }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <h3>Comments:</h3>
+        {% for comment in comments %}
+        <p>
+            On {{comment.created_on.date }}&nbsp;
+            <b>{{ comment.author }}</b> wrote:
+        </p>
+        <p>{{ comment.body }}</p>
+        <hr>
         {% endfor %}
-        {% if user.is_authenticated and user == post.author %}| <a href="{% url 'blog_edit' pk=post.pk %}">Edit Post</a> {% endif %}
-
-            {{ post.body | safe }}
-    
-
-    <h3>Leave a comment:</h3>
-    <form action="/blog/{{ post.pk }}/" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.author }}
         </div>
-        <div class="form-group">
-            {{ form.body }}
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <h3>Comments:</h3>
-    {% for comment in comments %}
-    <p>
-        On {{comment.created_on.date }}&nbsp;
-        <b>{{ comment.author }}</b> wrote:
-    </p>
-    <p>{{ comment.body }}</p>
-    <hr>
-    {% endfor %}
-    </div>
-    {% if user.is_authenticated and user != post.author %}
-    <button class="floating-action-button" onclick="window.location.href='post/new/'"><img src="https://img.icons8.com/material/48/000000/edit--v3.png"></button>
-    {% elif user.is_authenticated and user == post.author %}
-    <button class="floating-action-button" onclick="window.location.href='{% url 'blog_edit' pk=post.pk %}'"><img src="https://img.icons8.com/material/48/000000/edit--v3.png"></button>
+        {% if user.is_authenticated and user != post.author %}
+        <button class="floating-action-button" onclick="window.location.href='post/new/'"><i class="fas fa-plus"></i></button>
+        {% elif user.is_authenticated and user == post.author %}
+        <button class="floating-action-button" onclick="window.location.href='{% url 'blog_edit' pk=post.pk %}'"><i class="fas fa-pen"></i></button>
+        {% endif %}
+    {% else %}
+        <p>Join the discussion! To comment on posts you must make an account!</p>
     {% endif %}
 {% endblock content %}

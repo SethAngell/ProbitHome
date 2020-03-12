@@ -37,7 +37,7 @@ def blog_detail(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = Comment(
-                author=form.cleaned_data["author"],
+                author=request.user.username,
                 body=form.cleaned_data["body"],
                 post=post
             )
@@ -63,16 +63,37 @@ class blog_user(generic.ListView):
         return Post.objects.filter(author=user_object).order_by('-created_on')
 
 # REturn to this tomorrow https://stackoverflow.com/questions/42481287/automatically-set-logged-in-user-as-the-author-in-django-using-createview-and-mo
-class blog_new(generic.FormView, LoginRequiredMixin):
-    def get_success_url(self):
-        return reverse_lazy('blog_detail', kwargs={'pk': self.object.pk})
+def blog_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            author = request.user
+            title = request.POST.get('title')
+            body = request.POST.get('body')
+            header = request.FILES["header"]
+            saved_post = Post.objects.create(author=author, title=title, body=body, Header=header)
 
-    form_class = PostForm
-    template_name = 'blog/blog_edit.html'
+            return HttpResponseRedirect(f'/blog/{saved_post.pk}')
 
-    def form_valid(self, form):
-        form.instance.author_id = self.request.user.id
-        return super().form_valid(form)
+    return render(request, "blog/blog_new.html")
+
+
+# class blog_new(generic.FormView, LoginRequiredMixin):
+#     def get_success_url(self):
+#         return '/blog'
+#
+#     form_class = PostForm
+#     template_name = 'blog/blog_new.html'
+#
+#     def form_valid(self, form):
+#         if self.request.method == 'Post':
+#             author = self.request.user.id
+#             title = self.request.POST.get('title')
+#             body = self.request.POST.get('body')
+#             header = self.request.POST.get('header')
+#             Post.objects.create(author=author, title=title, body=body, Header=header)
+#         return super().form_valid(form)
+
 
 class blog_edit(generic.UpdateView, LoginRequiredMixin):
     model = Post
